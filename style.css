@@ -1,0 +1,30 @@
+td{
+    padding:3px !important;
+}
+
+.title{
+    display:flex;
+    width:100%;
+    height:100%;
+    align-items: center;
+    justify-content: center;
+}
+.title h1{
+    font-size: 60pt;
+}
+
+.slidev-layout tr{
+    border-bottom-width: 0;
+}
+
+
+.handout_notes{
+    display:none;
+}
+
+.block_reset{
+    all:initial;
+    display:block !important;
+    padding:20px;
+    background-color:white;
+}
