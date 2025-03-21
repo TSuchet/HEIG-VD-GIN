@@ -44,31 +44,31 @@ thead{
   <tr><th>Date</th><th>Heures</th><th>Contenu</th><th>Projet</th><th>Enseignant</th></tr>
 </thead>
 <tbody>
-  <tr><td>Lundi 7.4</td><td>08:00 - 09:30</td><td>Introduction webmapping</td><td></td><td>JID</td> </tr>
-  <tr><td></td><td>10:00 - 12:00</td><td>GIT + Javascript</td><td></td><td>CJ</td>  </tr>
+  <tr><td>Lundi 7.4</td><td>08:30 - 10:00</td><td>Introduction webmapping</td><td></td><td>JID</td> </tr>
+  <tr><td></td><td>10:30 - 12:00</td><td>GIT + Javascript</td><td></td><td>CJ</td>  </tr>
 
-  <tr><td>Jeudi 10.4</td><td>10:00 - 12:00</td><td>Javascript</td><td></td><td>CJ</td></tr>
+  <tr><td>Jeudi 10.4</td><td>08:30 - 10:00</td><td>Javascript</td><td></td><td>CJ</td></tr>
 
-  <tr><td>Lundi 14.4</td><td>08:00 - 09:30</td><td>Node & Vite</td><td></td><td>CJ</td></tr>
-  <tr><td></td><td>10:00 - 12:00</td><td>OpenLayers</td><td></td></tr>
+  <tr><td>Lundi 14.4</td><td>08:30 - 10:00</td><td>Node & Vite</td><td></td><td>CJ</td></tr>
+  <tr><td></td><td>10:30 - 12:00</td><td>OpenLayers</td><td></td></tr>
 
-  <tr><td>Jeudi 18.4</td><td>10:00 - 12:00</td><td>Prototyping, gestion de projets, CRUD</td><td></td><td>JID</td></tr>
+  <tr><td>Jeudi 18.4</td><td>08:30 - 10:00</td><td>Prototyping, gestion de projets, CRUD</td><td></td><td>JID</td></tr>
 
-  <tr><td>Lundi 28.4</td><td>08:00 - 12:00</td><td>Plugins QGIS</td><td></td><td>JID</td></tr>
+  <tr><td>Lundi 28.4</td><td>08:30 - 12:00</td><td>Plugins QGIS</td><td></td><td>JID</td></tr>
 
-  <tr><td>Jeudi 1.5</td><td>10:00 - 12:00</td><td></td><td>Présentation</td><td>JID</td></tr>
+  <tr><td>Jeudi 1.5</td><td>08:30 - 10:00</td><td></td><td>Présentation</td><td>JID</td></tr>
 
-  <tr><td>Lundi 5.5</td><td>08:00 - 09:30</td><td></td><td>Création des groupes + idées</td><td>CJ + JID</td></tr>
-  <tr><td></td><td>10:00 - 12:00</td><td></td><td>Temps de travail</td><td></td></tr>
+  <tr><td>Lundi 5.5</td><td>08:30 - 10:00</td><td></td><td>Création des groupes + idées</td><td>CJ + JID</td></tr>
+  <tr><td></td><td>10:30 - 12:00</td><td></td><td>Temps de travail</td><td></td></tr>
 
-  <tr><td>Jeudi 8.5</td><td>10:00 - 11:00</td><td class="important">Test (45 minutes)</td><td></td><td>CJ + JID</td></tr>
-  <tr><td></td><td>11:00 - 12:00</td><td></td><td>Temps de travail</td><td></td></tr>
+  <tr><td>Jeudi 8.5</td><td>08:30 - 10:00</td><td class="important">Test (45 minutes)</td><td></td><td>CJ + JID</td></tr>
+  <tr><td></td><td>10:30 - 12:00</td><td></td><td>Temps de travail</td><td></td></tr>
 
-  <tr><td>Lundi 19.5</td><td>08:00 - 12:00</td><td></td><td>Temps de travail</td><td>CJ + JID</td></tr>
-  <tr><td>Jeudi 22.5</td><td>10:00 - 12:00</td><td></td><td>Temps de travail</td><td>CJ + JID</td></tr>
-  <tr><td>Lundi 26.5</td><td>08:00 - 12:00</td><td></td><td>Temps de travail</td><td>CJ + JID</td></tr>
+  <tr><td>Lundi 19.5</td><td>08:30 - 12:00</td><td></td><td>Temps de travail</td><td>CJ + JID</td></tr>
+  <tr><td>Jeudi 22.5</td><td>08:30 - 10:00</td><td></td><td>Temps de travail</td><td>CJ + JID</td></tr>
+  <tr><td>Lundi 26.5</td><td>08:30 - 12:00</td><td></td><td>Temps de travail</td><td>CJ + JID</td></tr>
 
-  <tr><td>Lundi 2.6</td><td>08:00 - 12:00</td><td></td><td class="important">Rendu du code + Présentations</td><td>CJ + JID</td></tr>
+  <tr><td>Lundi 2.6</td><td>08:30 - 12:00</td><td></td><td class="important">Rendu du code + Présentations</td><td>CJ + JID</td></tr>
 
 </tbody></table>
 
