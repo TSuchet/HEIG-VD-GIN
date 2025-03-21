@@ -31,6 +31,71 @@ Il existe certaines variations entre le JavaScript de Node et celui de votre nav
 Il existe d'autres environnements d'executions et d'autres gestionnaires de packets que Node et npm. Nous utilisons ceux-ci car ce sont les plus répandus et les plus standards. Les alternatives ont souvent des fonctions très similaires.
 </div>
 
+---
+level : 2
+---
+# Node.js
+Quelques commandes de bases
+
+Dans le répertoire d'un projet Node.js : 
+
+- ```npm init``` : Créé un nouveau projet Node.js partant de zéro
+- ```npm install monPackage``` : Installe le packet monPackage, peut être abrégé ```npm i monPackage```
+- ```npm install``` : Installe toutes les dépendances (packet) du projet, peut être abrégé ```npm i```
+- ```npm run maCommande``` : Execute la commande maCommande
+- ```npm -h``` : Affiche l'aide des commandes
+
+Contrairement à Python, par défaut, tous les packets sont installés dans le repertoire du projet. <br>
+Chaque projet contient donc indépendamment tous ses packets, ils ne sont pas partagés entre projets.
+
+Il est possible d'installer un packet de manière *globale*, hors d'un projet avec ```npm install monPacket -g```, mais cela ne se fait que si vous souhaitez une commande sur tout votre système.
+
+---
+level : 2
+---
+# Node.js
+Structure d'un projet
+
+Un projet avec Node.js est notamment composé des fichiers / dossiers :
+
+- **package.json** : Liste les informations principales concernant un projet
+
+```js
+{
+  "name": "monProjet",    // Nom du projet
+  "type": "module",       // Son type, généralement un module
+  "scripts": {            // Liste des commandes (actions) disponibles pour le projet
+    "start": "vite",      // Executer "npm run start" va executer la commande "vite"
+    "build": "vite build"
+  },
+  "dependencies": {       // Liste des dépendances pour les projet, ajoutées au moment d'un "npm install <librairie1>"
+    "librairie1": "^1.0.0",     
+    "librairie2": "^1.2.0",
+    "librairie3": "^2.3.0"
+  }
+}
+```
+
+---
+level : 2
+---
+# Node.js
+Structure d'un projet
+
+Un projet avec Node.js est notamment composé des fichiers / dossiers :
+
+- **package-lock.json** : Liste les sous-dépendances (dépendances de dépendances). <br> Est recréé lors d'un *npm install*
+
+- **node_modules** : Dossier contenant toutes les dépendances téléchargées <br>
+Il ne doit pas être ajouté à votre projet git, car il est souvent très lourd et recréé lors d'un ```npm install```
+
+Pour installer et lancer une application qui utilise Node.js, suivez les instructions qui sont généralement du style : 
+
+```
+git clone <repository>  // Clone le projet avec git
+npm install             // Installe toutes les dépendances
+npm run start           // Lance le script de démarrage (définit dans package.json)
+```
 
 ---
 ---

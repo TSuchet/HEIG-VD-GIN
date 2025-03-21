@@ -13,3 +13,7 @@ src: ./lectures/01_intro_git_js/02_js.md
 ---
 src: ./lectures/01_intro_git_js/03_node_vue.md
 ---
+
+---
+src: ./lectures/01_intro_git_js/04_openlayers.md
+---
