@@ -27,6 +27,19 @@ Références :
 - Téléchargement : https://git-scm.com/downloads
 - Livre : https://git-scm.com/book/en/v2
 
+
+<div class="handout_notes">
+git est un incontournable du développement logiciel. C'est un programme open source utilisé partout dans le monde.
+
+Nous allons voir dans ce chapitre un aperçu des fondamentaux. Il existe de nombreuses fonctions que nous n'allons pas aborder.
+
+Il existe plusieurs alternatives à git (Perforce, Mercurial, etc) mais git est le plus généralement utilisé, particulièrement dans le monde open-source.
+
+git gère tous les types de données textuelles, pas seulement du code. Des livres, des documentations, des configurations, des notes, etc peuvent très bien être des projets gérés par git. En revanche git n'est pas fait pour gérer des fichiers compressés ou binaires, car ces derniers changent beaucoup d'une version à une autre.
+</div>
+
+
+
 ---
 level : 2
 ---
@@ -43,6 +56,11 @@ Ce qui se passe entre les commit n'est pas sauvegardé.
 
 <img src="/git/git01.svg" width="80%">
 
+<div class="handout_notes">
+Quand un commit est enregistré, git attribue un identifiant unique au commit et enregistre sa différence par rapport au commit précédent.
+
+Tout est placé de manière transparente dans le dossier .git de votre projet. 
+</div>
 
 ---
 level : 2
@@ -66,6 +84,15 @@ Git créé alors un nouveau commit
 
 Si l'option *-m* n'est pas précisée, git ouvrira un éditeur de texte pour entrer le message de commit
 
+<div class="handout_notes">
+La commande <i>git status</i> permet de voir l'état actuel d'un projet. Elle indiquera les fichiers modifiés depuis le dernier commit, et s'ils sont trackés ou non.
+
+Les messages de commit doivent être courts et le plus descriptif possible.<br>
+Mauvaise exemple : "J'ai modifié plusieurs fichiers de la configuration globale pour la prochaine mise à jour" (C'est long et très peu précis)<br>
+Bon exemple : "Ajout d'une couche OpenStreetMap" (Court et précis)
+</div>
+
+
 ---
 level : 2
 ---
@@ -86,6 +113,14 @@ Le projets sont stockés dans un dépôt (*repository*) distant. Il existe plusi
 <img src="/git/git03.png" width="60%">
 </p>
 
+<div class="handout_notes">
+On confond souvent <i>git</i> et <i>GitHub</i>, mais GitHub n'est "que" un système de dépôt pour projets git. Le logiciel est bel et bien <b>git</b>.
+
+Aujourd'hui les fournisseurs de stockage proposent de nombreuses options en plus du simple stockage. GitHub permet d'executer des actions sur le code (déploiements, compilations, etc), de faire des analyses de sécurité, de tenir une liste des tâches, et bien d'autres fonctions.
+
+GitHub affichera, sous la liste des fichiers et dossiers, le contenu du fichier "README.md" du dossier courant. C'est particulièrement pratique pour créer une page d'accueil de votre projet.
+</div>
+
 ---
 level : 2
 ---
@@ -99,6 +134,16 @@ Le workflow est donc le suivant :
 <p style="display:flex;justify-content:center;">
 <img src="/git/git02.svg" width="80%">
 </p>
+
+<div class="handout_notes">
+Pour travailler sur un projet, on procède généralement de la manière suivante :<br>
+1. On clone un repository existant, contenant le code sur lequel on se base<br>
+2. On y apporte des modifications <br>
+3. On fait petit à petit des commits pour chaque modification apportée<br>
+
+A noter que les commits sont pour le moment stockés en local sur la machine où le projet à été cloné.
+Jusqu'ici il n'y a pas de synchronisation avec le repository.
+</div>
 
 ---
 level : 2
@@ -124,6 +169,12 @@ git pull
 Vous devez d'abord commit vos changements locaux avant un pull
 </textBubble>
 
+<div class="handout_notes">
+Il est important de toujours commit avant un <i>pull</i>, sinon git se retrouvera avec votre version du code non sauvegardée, et une nouvelle version venue du repository. Git ne saura pas alors quoi faire et refusera de <i>pull</i>.
+
+Git est bien conçu et n'effacera/n'écrasera <b>jamais</b> de travail non sauvegardé, sauf lors de l'utilisation de commandes très explicites. Il en va de même pour les commits, une fois un code commité git n'effacera jamais le commit, sauf lors de l'utilisation de commandes très particulières et explicites.
+</div>
+
 ---
 level : 2
 ---
@@ -138,6 +189,13 @@ Le workflow est donc le suivant :
 <img src="/git/git04.svg" width="80%">
 </p>
 
+<div class="handout_notes">
+On retrouve ici les 4 commandes les plus utilisées avec git : <br>
+1. git clone <br>
+2. git commit <br>
+3. git push <br>
+4. git pull
+</div>
 
 
 ---

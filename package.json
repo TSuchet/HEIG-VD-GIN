@@ -3,6 +3,8 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "start": "slidev 'slides.md' --port 3031",
+    "handout": "slidev 'slides.md' --port 3031 --theme ./theme-handout",
     "build": "slidev build",
     "dev": "slidev --open",
     "export": "slidev export"

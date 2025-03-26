@@ -1,10 +1,10 @@
 *{
-    --handout-scale : 0.7;
-    --handout-height: 50%;
+    --handout-scale : 0.68;
+    --handout-height: 45%;
 }
 
 #slideshow{
-    transform: scale(var(--handout-scale)) translateY( calc(-95% * (1 - var(--handout-scale))) );
+    transform: scale(var(--handout-scale)) translateY( calc(-90% * (1 - var(--handout-scale))) );
 }
 
 footer{
@@ -13,17 +13,18 @@ footer{
 }
 
 .handout_notes{
+    position:absolute;
+    bottom:calc( -1.15*var(--handout-height));
+    left:0;
     background-color: white;
     color:black;
     height:var(--handout-height);
     width:100%;
-    position:absolute;
-    bottom:calc(-1*var(--handout-height));
-    left:0px;
     display:block !important;
     font-size:9pt;
     line-height: 1.15em;
-    padding:5px;
+    padding:10px;
     transform: scale(calc(1.0/var(--handout-scale)));
     text-align: left;
+    border-top: 2px solid black;
 }
