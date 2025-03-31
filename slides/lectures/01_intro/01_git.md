@@ -35,7 +35,9 @@ Nous allons voir dans ce chapitre un aperçu des fondamentaux. Il existe de nomb
 
 Il existe plusieurs alternatives à git (Perforce, Mercurial, etc) mais git est le plus généralement utilisé, particulièrement dans le monde open-source.
 
-git gère tous les types de données textuelles, pas seulement du code. Des livres, des documentations, des configurations, des notes, etc peuvent très bien être des projets gérés par git. En revanche git n'est pas fait pour gérer des fichiers compressés ou binaires, car ces derniers changent beaucoup d'une version à une autre.
+git gère tous les types de données textuelles, pas seulement du code. Des livres, des documentations, des configurations, des notes, etc peuvent très bien être des projets gérés par git. 
+Par exemple, ces slides sont un projet git stocké sur github.
+En revanche git n'est pas fait pour gérer des fichiers compressés ou binaires, car ces derniers changent beaucoup d'une version à une autre.
 </div>
 
 
@@ -85,11 +87,16 @@ Git créé alors un nouveau commit
 Si l'option *-m* n'est pas précisée, git ouvrira un éditeur de texte pour entrer le message de commit
 
 <div class="handout_notes">
-La commande <i>git status</i> permet de voir l'état actuel d'un projet. Elle indiquera les fichiers modifiés depuis le dernier commit, et s'ils sont trackés ou non.
+Par défaut, git n'enregistre pas l'ensemble des fichiers. Il faut lui indiquer quels fichiers sont importants avec la commande *git add*
+<br><br>
+
+La commande *git status* permet de voir l'état actuel d'un projet. Elle indiquera les fichiers modifiés depuis le dernier commit, et s'ils sont trackés ou non.
 
 Les messages de commit doivent être courts et le plus descriptif possible.<br>
-Mauvaise exemple : "J'ai modifié plusieurs fichiers de la configuration globale pour la prochaine mise à jour" (C'est long et très peu précis)<br>
-Bon exemple : "Ajout d'une couche OpenStreetMap" (Court et précis)
+Mauvaise exemple : "J'ai modifié plusieurs fichiers de la configuration globale pour la prochaine mise à jour, et corrigé plusieurs bug divers mais pas très importants" (C'est long et très peu précis)<br>
+Bon exemple : "Ajoute la couche bâtiments de OpenStreetMap" (Court et précis)
+
+Il est également possible de ne commit que certains fichiers modifiés, quand on ne précise pas l'option *-a*, mais ceci sort du cadre de ce cours.
 </div>
 
 
@@ -107,7 +114,7 @@ git clone <url_du_projet_distant>
 
 Git créé alors un dossier contenant tout le projet.
 
-Le projets sont stockés dans un dépôt (*repository*) distant. Il existe plusieurs fournisseurs de stockage : GitHub, GitLab, ou des stockages auto-hébergés tels que Gitea.
+Le projets sont stockés dans un dépôt (*repository*) distant. Il existe plusieurs fournisseurs de stockage : [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), ou des stockages auto-hébergés tels que [Gitea](https://about.gitea.com/).
 
 <p style="display:flex;justify-content:center;">
 <img src="/git/git03.png" width="60%">
@@ -151,11 +158,11 @@ level : 2
 # git
 Push & Pull
 
-Après plusieurs commits, il est possible d'envoyer (*push*) les changements au repository :
+Après plusieurs commits, il est possible d'envoyer (*push*) les changements au repository distant:
 ```
 git push
 ```
-Cela enverra tous les commits sur le repository. Ce qui n'a pas été commit ne sera pas pris en compte.
+Cela enverra tous les commits sur le repository distant. Ce qui n'a pas été commit ne sera pas pris en compte.
 
 <br><br>
 
@@ -170,9 +177,9 @@ Vous devez d'abord commit vos changements locaux avant un pull
 </textBubble>
 
 <div class="handout_notes">
-Il est important de toujours commit avant un <i>pull</i>, sinon git se retrouvera avec votre version du code non sauvegardée, et une nouvelle version venue du repository. Git ne saura pas alors quoi faire et refusera de <i>pull</i>.
+Il est important de toujours commit avant un <i>pull</i>, sinon git se retrouvera avec votre version du code non sauvegardée, et une nouvelle version venue du repository distant. Git ne saura pas alors quoi faire et refusera de <i>pull</i>.
 
-Git est bien conçu et n'effacera/n'écrasera <b>jamais</b> de travail non sauvegardé, sauf lors de l'utilisation de commandes très explicites. Il en va de même pour les commits, une fois un code commité git n'effacera jamais le commit, sauf lors de l'utilisation de commandes très particulières et explicites.
+Git est bien conçu et n'effacera/n'écrasera <b>jamais</b> de travail non sauvegardé, sauf lors de l'utilisation de commandes très explicites. Il en va de même pour les commits, une fois un code commité, git n'effacera jamais le commit, sauf lors de l'utilisation de commandes très particulières et explicites.
 </div>
 
 ---
@@ -210,6 +217,15 @@ En groupe
 <img src="/git/git05.svg" width="100%">
 </p>
 
+<div class="handout_notes">
+Les personnes travaillant sur un projet on chacune un clone du code et de l’historique des commits. Cela permet à tout le monde de travailler de son côté, le repository servant de point de synchronisation.
+
+A ce stade, concernant les trois problèmes évoqués au début du cours : 
+- Stocker le code en lieu sûr : Il s'agit du repository, problème résolu
+- Avoir un historique du code : Il s'agit des commits : problème résolu
+- Travailler à plusieurs sur le même code : On comprends le principe, mais que se passe-t-il si la Personne 1 et la Personne 2 font des modifications chacune de leur côté en même temps ?
+</div>
+
 ---
 level : 2
 ---
@@ -231,17 +247,18 @@ Supposons :
 
 Que se passe-t-il chez Alice ?
 
+<v-click>
 ```
 ! [rejected]        main -> main (fetch first)
 error: failed to push some refs to 'https://github.com/...'
 ```
 
 Alice ne peux pas push, car elle ne possède pas la dernière version du code
-
+</v-click>
 
 <div class="handout_notes">
 Au moment d'executer le point 5, git effectue un push.
-Mais le code présent sur le repository est plus récent que le code que possède Alice (car le code du repository contient le commit de Bob).
+Mais le code présent sur le repository est plus récent que le code que possède Alice (car le code du repository contient le commit de Bob). <br>
 Git ne va jamais écraser un changement, ce serait beaucoup trop dangereux, git refuse alors de faire le push.
 En pratique git indique toujours dans le message d'erreur ce qu'il est conseillé de faire. Voir slide suivante...
 </div>
@@ -263,6 +280,12 @@ Deux cas peuvent se produire :
     - Alice possède alors une version du code mélangée
     - Il lui suffit de faire un ```git commit``` et un ```git push``` pour push sa nouvelle version.
 
+
+<div class="handout_notes">
+git travaille par différence entre les fichiers. Si deux fichiers différents ont été modifiés, alors les modifications de chacun seront prises en compte. Si le même fichier a été modifié, et qu'il s'agit de lignes différentes, là aussi les deux modifications seront prises en compte.
+
+En revanche, si la même ligne d'un même fichier a été modifiée, alors les modifications sont "contradictoires", et git ne sait pas quelle version choisir.
+</div>
 
 ---
 level : 2
@@ -310,7 +333,7 @@ Automatic merge failed; fix conflicts and then commit the result.
     </tr>
 </table>
 
-Alice devra alors résoudre le conflits manuellement, puis ```git commit```et ```git push```
+Alice devra alors résoudre les conflits manuellement, puis ```git commit```et ```git push```
 
 <div class="handout_notes">
 Git indique les conflit en commençant par la version distante du code ("incomming change") et ensuite la version locale du code ("current change").

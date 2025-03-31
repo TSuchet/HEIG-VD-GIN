@@ -22,9 +22,13 @@ footer{
     width:100%;
     display:block !important;
     font-size:9pt;
-    line-height: 1.15em;
+    line-height: 1.5 !important;
     padding:10px;
     transform: scale(calc(1.0/var(--handout-scale)));
     text-align: left;
     border-top: 2px solid black;
+}
+.handout_notes p {
+    margin:0 !important;
+    padding:0 !important;
 }
