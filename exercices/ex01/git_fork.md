@@ -1,5 +1,7 @@
 # Exercice 1
 
+Cet exercice sert de mise en place pour faire les exercices suivants et introduit la notion de *fork*
+
 ## Les forks
 
 Vous trouvez un code intéressant sur un repository git (par exemple, ce cours sur GitHub). Vous pouvez cloner ce code sur votre machine, mais vous ne pouvez pas *push* vos modifications car vous n'avez pas le droit de modifier le repository original.
