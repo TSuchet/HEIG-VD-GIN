@@ -9,7 +9,7 @@ level : 2
 # git
 <div></div>
 <p>
-Git est un logiciel de gestion de version (VCS). <br>
+Dans ce cours, le code et les exercices seront diffusés via git. Git est un logiciel de gestion de version (VCS). <br>
 Il apporte les fonctionnalités suivantes lorsqu'un groupe travaille sur un même projet :
 </p>
 
@@ -35,8 +35,8 @@ Nous allons voir dans ce chapitre un aperçu des fondamentaux. Il existe de nomb
 
 Il existe plusieurs alternatives à git (Perforce, Mercurial, etc) mais git est le plus généralement utilisé, particulièrement dans le monde open-source.
 
-git gère tous les types de données textuelles, pas seulement du code. Des livres, des documentations, des configurations, des notes, etc peuvent très bien être des projets gérés par git. 
-Par exemple, ces slides sont un projet git stocké sur github.
+Git gère tous les types de données textuelles, pas seulement du code. Des livres, des documentations, des configurations, des notes, etc peuvent très bien être des projets gérés par git. 
+Par exemple, ces slides sont un projet git stocké sur GitHub.
 En revanche git n'est pas fait pour gérer des fichiers compressés ou binaires, car ces derniers changent beaucoup d'une version à une autre.
 </div>
 
@@ -70,7 +70,7 @@ level : 2
 # git
 Les commits
 
-Dans un projet, pour indiquer à git qu'un fichier doit être *tracké* (pris en compte), utiliser la commande :
+Dans un projet, pour indiquer à git qu'un fichier doit être *tracké* (pris en compte), la commande est :
 ```
 git add <chemin_vers_le_fichier>
 ```
@@ -81,13 +81,13 @@ git commit -am "Message"
 ```
 
 Git créé alors un nouveau commit   
-- L'option *-a* prends tous les fichiers trackés modifiés   
+- L'option *-a* indique de prendre tous les fichiers trackés modifiés   
 - L'option *-m* indique le message du commit. Il s'agit d'un texte décrivant ce qui a été modifié dans ce commit.   
 
 Si l'option *-m* n'est pas précisée, git ouvrira un éditeur de texte pour entrer le message de commit
 
 <div class="handout_notes">
-Par défaut, git n'enregistre pas l'ensemble des fichiers. Il faut lui indiquer quels fichiers sont importants avec la commande *git add*
+Par défaut, git n'enregistre pas l'ensemble des fichiers. Il faut lui indiquer quels fichiers sont importants avec la commande <i>git add</i>
 <br><br>
 
 La commande *git status* permet de voir l'état actuel d'un projet. Elle indiquera les fichiers modifiés depuis le dernier commit, et s'ils sont trackés ou non.
@@ -114,7 +114,7 @@ git clone <url_du_projet_distant>
 
 Git créé alors un dossier contenant tout le projet.
 
-Le projets sont stockés dans un dépôt (*repository*) distant. Il existe plusieurs fournisseurs de stockage : [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), ou des stockages auto-hébergés tels que [Gitea](https://about.gitea.com/).
+Les projets sont stockés dans un dépôt (*repository*) distant. Il existe plusieurs fournisseurs de stockage : [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), ou des stockages auto-hébergés tels que [Gitea](https://about.gitea.com/).
 
 <p style="display:flex;justify-content:center;">
 <img src="/git/git03.png" width="60%">
@@ -132,7 +132,7 @@ GitHub affichera, sous la liste des fichiers et dossiers, le contenu du fichier 
 level : 2
 ---
 # git
-Les commits
+Workflow de base
 
 Le workflow est donc le suivant :
 
@@ -163,6 +163,7 @@ Après plusieurs commits, il est possible d'envoyer (*push*) les changements au 
 git push
 ```
 Cela enverra tous les commits sur le repository distant. Ce qui n'a pas été commit ne sera pas pris en compte.
+Pour faire un `git push`, il faut avoir le droit de push sur le repository distant.
 
 <br><br>
 
@@ -173,11 +174,11 @@ git pull
 
 
 <textBubble type="info">
-Vous devez d'abord commit vos changements locaux avant un pull
+Faites toujours un commit de vos changements avant un pull
 </textBubble>
 
 <div class="handout_notes">
-Il est important de toujours commit avant un <i>pull</i>, sinon git se retrouvera avec votre version du code non sauvegardée, et une nouvelle version venue du repository distant. Git ne saura pas alors quoi faire et refusera de <i>pull</i>.
+Il est important de toujours <i>commit</i> avant un <i>pull</i>, sinon git se retrouvera avec votre version du code non sauvegardée, et une nouvelle version venue du repository distant. Git ne saura pas alors quoi faire et refusera de <i>pull</i>.
 
 Git est bien conçu et n'effacera/n'écrasera <b>jamais</b> de travail non sauvegardé, sauf lors de l'utilisation de commandes très explicites. Il en va de même pour les commits, une fois un code commité, git n'effacera jamais le commit, sauf lors de l'utilisation de commandes très particulières et explicites.
 </div>
@@ -221,7 +222,7 @@ En groupe
 Les personnes travaillant sur un projet on chacune un clone du code et de l’historique des commits. Cela permet à tout le monde de travailler de son côté, le repository servant de point de synchronisation.
 
 A ce stade, concernant les trois problèmes évoqués au début du cours : 
-- Stocker le code en lieu sûr : Il s'agit du repository, problème résolu
+- Stocker le code en lieu sûr : Il s'agit du repository distant, problème résolu
 - Avoir un historique du code : Il s'agit des commits : problème résolu
 - Travailler à plusieurs sur le même code : On comprends le principe, mais que se passe-t-il si la Personne 1 et la Personne 2 font des modifications chacune de leur côté en même temps ?
 </div>
@@ -275,7 +276,7 @@ A ce moment, git va mélanger (*merge*) les deux versions du code, celle d'Alice
 
 Deux cas peuvent se produire :
 
-1. Les modification ne sont pas contradictoires, git parvient à faire automatiquement le merge
+1. Les modifications ne sont pas contradictoires, git parvient à faire automatiquement le merge
 
     - Alice possède alors une version du code mélangée
     - Il lui suffit de faire un ```git commit``` et un ```git push``` pour push sa nouvelle version.
@@ -307,7 +308,7 @@ Deux cas peuvent se produire :
 <table>
     <tr>
         <td>
-            Lors du pull Alice recevra un message disant :
+            Lors du pull Alice recevra le message :
         </td>
         <td>
             <pre>
@@ -319,7 +320,7 @@ Automatic merge failed; fix conflicts and then commit the result.
     </tr>
     <tr>
         <td>
-            Git indique les endroit de conflits sous la forme :
+            Les conflits sont indiqués sous la forme :
         </td>
         <td>
             <pre>
@@ -356,9 +357,9 @@ La commande ```git status``` permet de voir la liste des fichiers modifiés depu
 <br><br>
 
 Si un fichier nommé ```.gitignore``` est placé à la racine d'un projet, les dossier et fichiers listés à l'intérieur ne seront jamais trackés. Cela est très pratique pour directement exclure des fichiers et des dossiers entiers qu'on ne souhaite pas synchroniser.
-Il est possible d'utiliser des expressions génériques, par exemple ```*.txt``` empêchera tous les fichiers avec l'extension ```.txt``` d'être trackés.
+Il est possible d'utiliser des expressions génériques. Par exemple ```*.txt``` empêchera tous les fichiers avec l'extension ```.txt``` d'être trackés.
 <br><br>
 
 <textBubble type="info">
-Ce chapitre est une introduction à git, il existe de nombreuses autres fonctions qui n'ont pas été mentionnées
+Ce chapitre est une introduction à git, il existe de nombreuses autres fonctions qui n'ont pas été mentionnées et que vous découvriez au travers des exercices et de la pratique.
 </textBubble>

@@ -45,24 +45,16 @@ console.log(counter);
 
 
 // Partie 4
-console.log(`4. Variance de la suite de Syracuse partant de ${START_NUMBER} : `);
+console.log(`4. Suite de Syracuse partant de ${START_NUMBER} : `);
 
-// On stocke les valeurs de la suite de Syracuse ainsi que leur somme
 var current_number = START_NUMBER;
-var syracuse_values = [];
-var syracuse_sum = 0;
+var numbers = [];
 while(current_number != 1){
-    syracuse_sum += current_number;
-    syracuse_values.push(current_number);
-    current_number = current_number % 2 == 0 ? current_number / 2 : current_number*3 + 1
+    numbers.push(current_number)
+    if(current_number % 2 == 0){
+        current_number /= 2; // L'opérateur x /= y est équivalent à x = x / y
+    }else{
+        current_number = current_number*3 + 1;
+    }
 }
-
-// On calcule la somme du carré des différences entre les valeurs de la suite et la moyenne de la suite
-const syracuse_mean = syracuse_sum / syracuse_values.length;
-var variance = 0;
-for(const val of syracuse_values){
-    variance += Math.pow(val - syracuse_mean, 2)
-}
-variance /= syracuse_values.length
-
-console.log(variance);
+console.log(numbers);
