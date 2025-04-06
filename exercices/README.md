@@ -7,7 +7,7 @@ Pour faire les exercices du cours, il vous faudra installer git et créer un com
 1. Téléchargez et installez git à l'adresse https://git-scm.com/downloads  
 Durant l'installation, laissez toutes les options par défaut, sauf :
     - Dans la section "Choosing the default editor used by git", sélectionnez l'option "Use Notepad as the default text editor".
-    Par défaut, si git à besoin d'ouvrir un éditeur de texte (notamment pour indiquer les messages de commit si vous n'utiliser pas l'option -m de la commande *git commit*) il utilise Vim, qui est un éditeur pratique mais plutôt complexe. Notepad est plus intuitif.
+    Par défaut, si git à besoin d'ouvrir un éditeur de texte (notamment pour indiquer les messages de commit si vous n'utilisez pas l'option -m de la commande *git commit*) il utilise Vim, qui est un éditeur pratique mais plutôt complexe. Notepad est plus intuitif.
 
 2. Si vous ne possédez pas déjà un compte, créez un compte GitHub à l'adresse https://github.com/signup. Il vous sera utile pour faire les exercices de ce cours et pour votre projet.
 
@@ -17,4 +17,4 @@ Durant l'installation, laissez toutes les options par défaut, sauf :
 
 5. Tapez la commande `git clone https://github.com/Dolpic/HEIG-VD-GIN.git`, ceci va cloner (et donc télécharger) le cours et les exercices.
 
-6. Vous pouvez commencer les exercices ! Ils se trouvent dans le dossier *exercices*. Chaque exercice se trouve dans sont propre dossier. Il s'agit la plupart du temps de code à compléter. Les solutions se trouvent dans le dossier *solutions*, qui suit la même structure avec les codes complets
+6. Vous pouvez commencer les exercices ! Ils se trouvent dans le dossier *exercices*. Chaque exercice se trouve dans son propre dossier. Il s'agit la plupart du temps de code à compléter. Les solutions se trouvent dans le dossier *solutions*, qui suit la même structure avec les codes complets

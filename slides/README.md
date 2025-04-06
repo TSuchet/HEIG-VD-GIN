@@ -2,10 +2,6 @@
 
 Slides for the course "Géoinformatique" at HEIG-VD
 
-## Slides
-
-Slides can be found at : TODO
-
 ## Generate slides
 
 1. Install Node.js

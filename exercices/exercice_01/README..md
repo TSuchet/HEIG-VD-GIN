@@ -9,8 +9,8 @@ Vous trouvez un code intéressant sur un repository git (par exemple, ce cours s
 Vous souhaitez donc créer votre propre copie du repository, dans votre compte GitHub, afin de pouvoir le modifier comme bon vous semble. C'est ce qu'on appelle un *fork*.
 
 Pour *fork* un repository, il vous suffit d'aller sur la page GitHub du projet, ici https://github.com/Dolpic/HEIG-VD-GIN et de cliquer sur le bouton "fork" en haut à droite ![](fork01.png)   
-Vous arrivez sur un page vous demandant de sélectionner le compte dans lequel vous souhaitez faire la copie. ![](fork02.png)
+Vous arrivez sur une page vous demandant de sélectionner le compte dans lequel vous souhaitez faire la copie. ![](fork02.png)
 
-Sélectionner votre compte, puis "Create fork". Vous arrivez ensuite sur un nouveau repository, identique à l'original, mais stocker sur votre compte.
+Sélectionner votre compte, puis "Create fork". Vous arrivez ensuite sur un nouveau repository, identique à l'original, mais stocké sur votre compte.
 
-Cloner ce repository sur votre machine, et poursuivez les exercices depuis ce nouveau repository. Vous pourrez alors `git commit` et `git push` votre progrès au fur et à mesure.
+Cloner ce nouveau repository sur votre machine (vous pouvez supprimer l'ancien), et poursuivez les exercices. Vous pourrez alors `git commit` et `git push` votre progrès au fur et à mesure.
