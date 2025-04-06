@@ -22,6 +22,6 @@ Durant l'installation, laissez toutes les options par défaut, sauf :
 ## Environnement de développement
  
  Vous êtes libres d'utiliser les logiciels que vous souhaitez pour suivre ce cours.
- Nous recommandes (Visual Studio Code)[https://code.visualstudio.com/download] qui intègre de nombreuses fonctionnalités, dont une interface pour git. 
+ Nous recommandons [Visual Studio Code](https://code.visualstudio.com/download) qui intègre de nombreuses fonctionnalités, dont une interface pour git. 
 
  N'hésitez pas à nous contacter si vous rencontrez des difficultés pour la mise en place des exercices.
