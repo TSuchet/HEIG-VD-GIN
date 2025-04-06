@@ -1,10 +1,12 @@
 *{
-    --handout-scale : 0.68;
+    --handout-scale : 0.66;
     --handout-height: 45%;
 }
 
-#slideshow{
-    transform: scale(var(--handout-scale)) translateY( calc(-90% * (1 - var(--handout-scale))) );
+.slidev-layout{
+    zoom:var(--handout-scale);
+    width:calc(100% * var(--handout-scale)) ;
+    margin:auto;
 }
 
 footer{
@@ -14,17 +16,16 @@ footer{
 
 .handout_notes{
     position:absolute;
-    bottom:calc( -1.15*var(--handout-height));
-    left:0;
+    top:calc(100% * var(--handout-scale));
     background-color: white;
     color:black;
-    height:var(--handout-height);
     width:100%;
+    left:0;
     display:block !important;
-    font-size:9pt;
+    font-size:11pt;
     line-height: 1.5 !important;
-    padding:10px;
-    transform: scale(calc(1.0/var(--handout-scale)));
+    padding:15px;
+    height:100%;
     text-align: left;
     border-top: 2px solid black;
 }

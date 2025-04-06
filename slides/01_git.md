@@ -71,12 +71,12 @@ level : 2
 Les commits
 
 Dans un projet, pour indiquer à git qu'un fichier doit être *tracké* (pris en compte), la commande est :
-```
+```bash
 git add <chemin_vers_le_fichier>
 ```
 
-Un commit est fait avec la commande :
-```
+Pour faire un commit, la commande est :
+```bash
 git commit -am "Message"
 ```
 
@@ -93,8 +93,8 @@ Par défaut, git n'enregistre pas l'ensemble des fichiers. Il faut lui indiquer 
 La commande *git status* permet de voir l'état actuel d'un projet. Elle indiquera les fichiers modifiés depuis le dernier commit, et s'ils sont trackés ou non.
 
 Les messages de commit doivent être courts et le plus descriptif possible.<br>
-Mauvaise exemple : "J'ai modifié plusieurs fichiers de la configuration globale pour la prochaine mise à jour, et corrigé plusieurs bug divers mais pas très importants" (C'est long et très peu précis)<br>
-Bon exemple : "Ajoute la couche bâtiments de OpenStreetMap" (Court et précis)
+Mauvaise exemple : "<i>J'ai modifié plusieurs fichiers de la configuration globale pour la prochaine mise à jour, et corrigé plusieurs bug divers mais pas très importants</i>" (C'est long et très peu précis)<br>
+Bon exemple : "<i>Ajoute la couche bâtiments de OpenStreetMap</i>" (Court et précis)
 
 Il est également possible de ne commit que certains fichiers modifiés, quand on ne précise pas l'option *-a*, mais ceci sort du cadre de ce cours.
 </div>
@@ -108,7 +108,7 @@ Le clonage
 
 Pour travailler sur un projet existant, il faut d'abord le copier en local sur sa machine. On appelle cela le *clonage*.
 La commande est :
-```
+```bash
 git clone <url_du_projet_distant>
 ```
 
@@ -121,11 +121,13 @@ Les projets sont stockés dans un dépôt (*repository*) distant. Il existe plus
 </p>
 
 <div class="handout_notes">
+
 On confond souvent <i>git</i> et <i>GitHub</i>, mais GitHub n'est "que" un système de dépôt pour projets git. Le logiciel est bel et bien <b>git</b>.
 
 Aujourd'hui les fournisseurs de stockage proposent de nombreuses options en plus du simple stockage. GitHub permet d'executer des actions sur le code (déploiements, compilations, etc), de faire des analyses de sécurité, de tenir une liste des tâches, et bien d'autres fonctions.
 
 GitHub affichera, sous la liste des fichiers et dossiers, le contenu du fichier "README.md" du dossier courant. C'est particulièrement pratique pour créer une page d'accueil de votre projet.
+
 </div>
 
 ---
@@ -159,16 +161,19 @@ level : 2
 Push & Pull
 
 Après plusieurs commits, il est possible d'envoyer (*push*) les changements au repository distant:
-```
+
+```bash
 git push
 ```
+
 Cela enverra tous les commits sur le repository distant. Ce qui n'a pas été commit ne sera pas pris en compte.
-Pour faire un `git push`, il faut avoir le droit de push sur le repository distant.
+Pour faire un ```git push``` , il faut avoir le droit de push sur le repository distant.
 
 <br><br>
 
 Pour récupérer (*pull*) la dernière version du code en ligne, si celui-ci a été modifié par quelqu'un d'autre:
-```
+
+```bash
 git pull
 ```
 
@@ -178,9 +183,9 @@ Faites toujours un commit de vos changements avant un pull
 </textBubble>
 
 <div class="handout_notes">
-Il est important de toujours <i>commit</i> avant un <i>pull</i>, sinon git se retrouvera avec votre version du code non sauvegardée, et une nouvelle version venue du repository distant. Git ne saura pas alors quoi faire et refusera de <i>pull</i>.
+Il est important de toujours <i>commit</i> avant un <i>pull</i>, sinon git se retrouvera avec votre version du code non sauvegardée, et une nouvelle version venue du repository distant. Si les modifications se chevauchent, Git ne saura pas quoi faire et refusera de <i>pull</i>.
 
-Git est bien conçu et n'effacera/n'écrasera <b>jamais</b> de travail non sauvegardé, sauf lors de l'utilisation de commandes très explicites. Il en va de même pour les commits, une fois un code commité, git n'effacera jamais le commit, sauf lors de l'utilisation de commandes très particulières et explicites.
+Git est bien conçu et n'effacera/n'écrasera <b>jamais</b> de travail non sauvegardé, sauf lors de l'utilisation de commandes très explicites. Il en va de même pour les commits. Une fois un code commité, git n'effacera jamais le commit, sauf lors de l'utilisation de commandes très particulières.
 </div>
 
 ---
@@ -254,7 +259,7 @@ Que se passe-t-il chez Alice ?
 error: failed to push some refs to 'https://github.com/...'
 ```
 
-Alice ne peux pas push, car elle ne possède pas la dernière version du code
+Alice ne peut pas push, car elle ne possède pas la dernière version du code
 </v-click>
 
 <div class="handout_notes">
@@ -283,7 +288,7 @@ Deux cas peuvent se produire :
 
 
 <div class="handout_notes">
-git travaille par différence entre les fichiers. Si deux fichiers différents ont été modifiés, alors les modifications de chacun seront prises en compte. Si le même fichier a été modifié, et qu'il s'agit de lignes différentes, là aussi les deux modifications seront prises en compte.
+git travaille par différence entre les fichiers. Si deux fichiers différents ont été modifiés, alors les modifications de chacun seront fusionnées. Si le même fichier a été modifié, et qu'il s'agit de lignes différentes, là aussi il y a fusion.
 
 En revanche, si la même ligne d'un même fichier a été modifiée, alors les modifications sont "contradictoires", et git ne sait pas quelle version choisir.
 </div>
