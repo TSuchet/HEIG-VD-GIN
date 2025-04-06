@@ -18,3 +18,10 @@ Durant l'installation, laissez toutes les options par défaut, sauf :
 5. Tapez la commande `git clone https://github.com/Dolpic/HEIG-VD-GIN.git`, ceci va cloner (et donc télécharger) le cours et les exercices.
 
 6. Vous pouvez commencer les exercices ! Ils se trouvent dans le dossier *exercices*. Chaque exercice se trouve dans son propre dossier. Il s'agit la plupart du temps de code à compléter. Les solutions se trouvent dans le dossier *solutions*, qui suit la même structure avec les codes complets
+
+## Environnement de développement
+ 
+ Vous êtes libres d'utiliser les logiciels que vous souhaitez pour suivre ce cours.
+ Nous recommandes (Visual Studio Code)[https://code.visualstudio.com/download] qui intègre de nombreuses fonctionnalités, dont une interface pour git. 
+
+ N'hésitez pas à nous contacter si vous rencontrez des difficultés pour la mise en place des exercices.
