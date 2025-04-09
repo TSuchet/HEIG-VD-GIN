@@ -1,15 +1,24 @@
 // Partie 1
 {
-console.log("Partie 1 : ")
 
-// TODO
+console.log("Partie 1 : ")
+const object = {
+    "Name" : "HEIG-VD",
+    "Type" : "University",
+    "Coordinates" : [2540499, 1181186],
+    "Address" : "Route de Cheseaux 1"
+};
+
+for(const key in object){
+    console.log("Clé : "+key+", Valeur : "+object[key])
+}
 
 }
 
 // Partie 2
 {
-console.log("Partie 2 : ")
 
+console.log("Partie 2 : ")
 const CANTONS = [
     { "name": "Aargau", "surface": 1403702150, "abrv": "AG" }, 
     { "name": "Appenzell Ausserrhoden", "surface": 242822568, "abrv": "AR" },
@@ -39,6 +48,31 @@ const CANTONS = [
     { "name": "Zürich", "surface": 1728819281, "abrv": "ZU" }
 ];
 
-// TODO
+let surface_min = 999_999_999;
+let surface_max = 0;
+let name_max = "";
+let surface_sum = 0;
+let surface_partial = 0;
+
+for(const canton of CANTONS){
+    surface_sum += canton.surface;
+
+    surface_min = Math.min(surface_min, canton.surface);
+
+    if(canton.surface > surface_max){
+        surface_max = canton.surface;
+        name_max = canton.name;
+    }
+
+    if(['GE','VD','VS','FR','NE'].includes(canton.abrv)){
+        surface_partial += canton.surface;
+    }
+
+}
+
+console.log("Superficie totale : "+surface_sum+" m²");
+console.log("Superficie de Genève, Vaud, Valais, Fribourg et Neuchâtel : "+surface_partial+" m²");
+console.log("Le plus grand canton suisse est : "+name_max);
+console.log("Le plus grand canton est "+(surface_max/surface_min).toFixed(2)+" fois plus grand que le plus petit canton");
 
 }

@@ -67,10 +67,10 @@ Si la fonction n'est composée que d'un ```return``` (comme c'est le cas ici), i
 const operation4 = (a,b) => 1 + a * b; // Dans ce cas, on peut omettre les accolades et le return
 ```
 
-Toutes les notations de cette slides sont équivalentes
+Toutes les notations de cette slide sont équivalentes
 
 <div class="handout_notes">
-On le verra plus loins, mais les fonctions et leur gestion est au coeur du JavaScript. Il est extrêmement commun d'avoir des fonctions dans des objets, en tant que paramètres d'autres fonctions, etc.
+On le verra plus loins, mais les fonctions et leur gestion est au coeur du JavaScript. Il est extrêmement commun d'avoir des fonctions dans des objets, ou en tant que paramètres d'autres fonctions, etc.
 </div>
 
 ---
@@ -94,3 +94,75 @@ console.log(apply_to_table([2, 4, 6], (x) => 3*x+1)); // Affiche [7, 13, 19]
 Cet exemple illustre la puissance des fonctions en JavaScript : elles peuvent être passées en tant que valeur n'importe où.
 Du point de vue de JavaScript, les fonctions sont des objets, qui ont la particularité de contenir du code pouvant être executé.
 </div>
+
+---
+level : 2
+---
+# JavaScript
+Les fonctions -- Paramètres par défaut
+
+Les fonctions acceptent des paramètres par défaut. <br>
+
+Exemple : 
+
+```js
+function add(a, b, c=0, d=0){
+    return a + b + c + d;
+}
+
+console.log(add(2,3));      // Affiche 5
+console.log(add(2,3,4));    // Affiche 9
+console.log(add(2,3,4,5));  // Affiche 14
+```
+
+Les paramètres par défaut doivent toujours se trouver en dernière position `function add(a=0, b){}` est invalide
+
+---
+level : 2
+---
+# JavaScript
+Les fonctions -- Immutabilité
+
+L'immutabilité s'applique aussi dans le cas des fonctions, de la même manière que pour l'assignation.
+
+```js {1-10|10-20}
+function modify_number(num){    // Type de base en paramètre, il sera dupliqué durant l'execution
+    num = 10;                   // Cette assignation modifie la copie local dans la fonction
+    return num;
+}
+
+const num_1 = 1;
+const num_2 = modify_number(num_1);
+console.log(num_1);     // Retourne 1  : La valeur de base n'a pas été modifiée
+console.log(num_2);     // Retourne 10 : Il s'agit de la valeur renvoyée par la fonction
+
+
+function modify_table(table){   // Type composé en paramètre, ce sera une référence à l'objet de base
+    table[1] = 10;              // Cette assignation va modifier le tableau original
+    return table;
+}
+
+const table_1 = [1,2,3];
+const table_2 = modify_table(table_1);
+console.log(table_1);   // Retourne [10, 2, 3] : table_1 a été modifié par la fonction
+console.log(table_2);   // Retourne [10, 2, 3] : il s'agit du même tableau que table_1
+```
+
+<div class="handout_notes">
+
+Quand une fonction est appelée, au moment d'assigner la valeur à ses paramètres, elle se comporte comme l'opérateur `=`.
+C'est-à-dire : <br>
+- Les types de base sont immuable, et seront donc dupliqués
+- Les objets (types composés) sont mutables, et la fonction s’exécutera *sur le même objet que passé en paramètre*
+
+La fonction *modify_number* ci-dessus prend un nombre en paramètre, et lui assigne 10. Comme il s'agit d'un nombre, il sera copié au moment d'executer la fonction, cela ne modifiera pas le nombre d'origine, et la fonction retournera toujours 10.
+
+La fonction *modify_table*, au contraire, prend un tableau en paramètre. Le tableau sur lequel va agir la fonction sera le tableau passé en paramètre : il n'y a pas de copie. La ligne `table[1] = 10` va donc modifier le tableau d'origine.
+De plus, la ligne `return table` va renvoyer le même tableau que passé en paramètre.
+
+Les variables `table_1` et `table_2` vont donc référencer le même tableau, et tout changement de l'une sera visible dans l'autre.
+<br>
+Les fonctions qui modifient leur objets d'entrée sans créer de copie sont souvent appelée *in-place*.
+</div>
+
+

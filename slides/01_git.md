@@ -368,3 +368,109 @@ Il est possible d'utiliser des expressions génériques. Par exemple ```*.txt```
 <textBubble type="info">
 Ce chapitre est une introduction à git, il existe de nombreuses autres fonctions qui n'ont pas été mentionnées et que vous découvriez au travers des exercices et de la pratique.
 </textBubble>
+
+
+---
+level : 1
+---
+
+<div class="title"><h2>Git en pratique</h2></div>
+
+---
+level : 2
+---
+# git en pratique
+Démarrer une ligne de commande git
+
+Une fois git installé, sur Windows, vous avez deux solutions :
+
+1. Clic droit dans l'explorateur Windows, puis "Show more options" et "Open Git Bash Here"
+<table>
+<tr>
+<td><img src="/git_practical_0.png" width="150px"></td>
+<td><img src="/git_practical_1.png" width="250px"></td>
+</tr>
+</table>
+L'option "Open Git GUI here" ouvre l'interface utilisateur. Nous ne l'utiliserons pas dans ce cours.
+
+2. Cherchez "git Bash" dans la liste de vos applications
+<img src="/git_practical_2.png" width="350px">
+
+
+---
+level : 2
+---
+# git en pratique
+Naviguer dans le terminal
+
+Une fois le terminal ouvert, vous verrez son interface :
+
+```bash
+user@desktop MINGW64 /c
+$
+```
+
+vous pouvez naviguer dans vos fichier à l'aide de la commande `cd`
+
+```bash
+user@desktop MINGW64 /c
+$ cd C:/repertoire/de/votre/projet
+```
+
+le terminal vous affiche alors que vous vous trouvez dans un repository avec le `(main)` :
+
+```bash
+user@desktop MINGW64 /c/repertoire/de/votre/projet (main)
+$ 
+```
+
+Vous pouvez alors utiliser toutes les commandes vues précédemment
+
+<textBubble type="info">
+Quand vous clonez un repository, il vous faudra d'abord vous déplacer à l'intérieur du dossier créé par git
+</textBubble>
+
+
+---
+level : 2
+---
+# git en pratique
+Git avec Visual Studio Code
+
+Visual Studio Code (comme beaucoup d'éditeurs) intègre directement git s'il est installé sur votre machine.
+
+Pour cela, démarrez VS Code, et ouvrez un projet avec le menu "File" -> "Open Folder"
+
+Sur la barre à gauche, vous avez l'onglet "git"
+<img src="/git_practical_3.png" width="300px">
+
+Cet onglet affichera vos fichiers modifiés. Vous pouvez créer un commit en entrant un message et en cliquant sur "Commit". Le bouton devient alors "Push" qui vous permet de push vos modifications.
+
+<div class="handout_notes">
+Même si l'interface de VS Code est plus pratique que le terminal, il est nécessaire connaître les commandes et de savoir utiliser le terminal. Vous ne travaillerez pas toujours avec VS Code, et pour utiliser git correctement il faut comprendre ce que chacune des actions fait et pouvoir utiliser le terminal au cas-où. 
+
+De plus, si vous utilisez une machine à distance (par exemple, un serveur fonctionne sur Linux), il y a rarement des interfaces graphiques et les lignes de commandes très pratiques.
+</div>
+
+---
+level : 2
+---
+# git en pratique
+Fork un repository
+
+Un fork est une copie d'un repository distant qui ne vous appartient pas, vers votre compte en ligne. Cela vous permet de créer un repository à vous sur lequel vous pourrez push.
+
+Pour fork un repository, il vous suffit d'aller sur la page GitHub du projet, ici https://github.com/Dolpic/HEIG-VD-GIN et de cliquer sur le bouton "fork" en haut à droite.
+<img src="/git_practical_4.png" width="300px">
+Sur la page suivante sélectionner votre compte, puis "Create fork". 
+<img src="/git_practical_5.png" width="300px">
+Vous arrivez ensuite sur un nouveau repository, identique à l'original, mais stocké sur votre compte.
+
+---
+level : 2
+---
+# git en pratique
+Synchroniser un fork
+
+Quand de nouveaux commits sont fait sur le repository d'origine, vous pouvez mettre à jour votre fork avec le bouton suivant, présent sur la page web de votre repository :
+<img src="/git_practical_6.png" width="100px">
