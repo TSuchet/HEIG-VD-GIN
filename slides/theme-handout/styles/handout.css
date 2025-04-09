@@ -9,6 +9,10 @@
     margin:auto;
 }
 
+.handout_notes code{
+    background-color: white !important;
+}
+
 footer{
     color: black;
     z-index:100;

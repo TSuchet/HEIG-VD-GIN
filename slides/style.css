@@ -12,6 +12,9 @@ td{
 .title h1{
     font-size: 60pt;
 }
+.title h2{
+    font-size: 50pt;
+}
 
 .slidev-layout tr{
     border-bottom-width: 0;
