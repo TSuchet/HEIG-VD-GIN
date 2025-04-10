@@ -48,6 +48,8 @@ elem.style.fontSize = "20pt";                        // Assigne une nouvelle tai
 
 Référence du DOM et ses fonctions : https://www.w3schools.com/js/js_htmldom.asp
 
+<v-click>
+
 Il est aussi possible d'attacher des événements aux éléments :
 
 ```js
@@ -62,9 +64,42 @@ elem.addEventListener("click", ()=>elem.textContent="Clic!");   // Au clic, modi
 document.body.addEventListener("load", ()=>document.getElementById('info').textContent="Loaded!");
 ```
 
+</v-click>
+
 <div class="handout_notes">
 
 La fonction `addEventListener` permet d'attacher une action à un événement.<br>
 Le premier paramètre est une chaîne de caractère qui décrit l'événement. <br>
 Le second paramètre est l'action à executer quand l'événement survient. Cette action est une fonction, c'est un excellent exemple d'une fonction qui prend en paramètre une autre fonction à executer plus tard.
+</div>
+
+---
+level : 2
+---
+# JavaScript
+Le DOM - Les événements
+
+Il est aussi possible de spécifier un événement directement dans la balise :
+
+index.html
+```html
+<!DOCTYPE html>
+<html>
+    <head>...</head>
+    <body onload="execute_on_load()">
+        <button onclick="execute_on_click()">Button</button>
+        <script src="script.js"></script>
+    </body>
+</html>
+```
+
+script.js
+```js
+function execute_on_load(){console.log("Loaded !");}
+
+function execute_on_click(){console.log("Clicked !");}
+```
+
+<div class="handout_notes">
+
 </div>

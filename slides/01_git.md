@@ -382,7 +382,7 @@ level : 2
 # git en pratique
 Démarrer une ligne de commande git
 
-Une fois git installé, sur Windows, vous avez deux solutions :
+Une fois git installé, sur Windows, pour ouvrir la console, vous avez deux solutions :
 
 1. Clic droit dans l'explorateur Windows, puis "Show more options" et "Open Git Bash Here"
 <table>
@@ -473,4 +473,4 @@ level : 2
 Synchroniser un fork
 
 Quand de nouveaux commits sont fait sur le repository d'origine, vous pouvez mettre à jour votre fork avec le bouton suivant, présent sur la page web de votre repository :
-<img src="/git_practical_6.png" width="100px">
+<img src="/git_practical_6.png" width="200px">
