@@ -7,8 +7,8 @@
     "handout": "slidev './00_slides.md' --port 3030 --theme ./theme-handout",
     "build": "slidev build './00_slides.md'",
     "dev": "slidev --open",
-    "export": "slidev export ./01_git.md --format pdf --output ./pdfs/01_git.pdf --dark && slidev export ./02_js.md --format pdf --output ./pdfs/02_js.pdf --dark --with-clicks",
-    "export-handout": "slidev export ./01_git.md --format pdf --output ./pdfs/01_git_handout.pdf --dark --theme ./theme-handout && slidev export ./02_js.md --format pdf --output ./pdfs/02_js_handout.pdf --dark --theme ./theme-handout --with-clicks"
+    "export": "slidev export ./01_git.md --format pdf --output ./pdfs/01_git.pdf --dark && slidev export ./02_js.md --format pdf --output ./pdfs/02_js.pdf --dark --with-clicks && slidev export ./03_node_vite.md --format pdf --output ./pdfs/03_node_vite.pdf --dark --with-clicks && slidev export ./04_openlayers.md --format pdf --output ./pdfs/04_openlayers.pdf --dark --with-clicks",
+    "export-handout": "slidev export ./01_git.md --format pdf --output ./pdfs/01_git_handout.pdf --dark --theme ./theme-handout && slidev export ./02_js.md --format pdf --output ./pdfs/02_js_handout.pdf --dark --theme ./theme-handout --with-clicks && slidev export ./03_node_vite.md --format pdf --output ./pdfs/03_node_vite_handout.pdf --dark --theme ./theme-handout --with-clicks && slidev export ./04_openlayers.md --format pdf --output ./pdfs/04_openlayers_handout.pdf --dark --theme ./theme-handout --with-clicks"
   },
   "dependencies": {
     "@slidev/cli": "^51.0.2",
