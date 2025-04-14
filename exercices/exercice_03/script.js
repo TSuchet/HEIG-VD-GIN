@@ -101,7 +101,41 @@ for (const coord in COORDS) {
     };
     Addcoord = Addcoord + COORDS [coord] [0] + COORDS [coord] [1]
     nbcoord = nbcoord + 2
+
 };
+
+function distancePointToLine(p, a, b) {
+    // Distance du point p à la ligne passant par a et b
+    const [px, py] = p;
+    const [ax, ay] = a;
+    const [bx, by] = b;
+  
+    const num = Math.abs((by - ay) * px - (bx - ax) * py + bx * ay - by * ax);
+    const den = Math.sqrt((by - ay) ** 2 + (bx - ax) ** 2);
+  
+    return den === 0 ? 0 : num / den;
+  };
+  
+  function arePointsAligned(coords, tolerance = 1e-6) {
+    if (coords.length <= 2) return true; // 2 points = toujours alignés
+  
+    const a = coords[0];
+    const b = coords[1];
+  
+    for (let i = 2; i < coords.length; i++) {
+      const dist = distancePointToLine(coords[i], a, b);
+      if (dist > tolerance) {
+        return false;
+      }
+    }
+  
+    return true;
+  };
+  
+
+const tolerance = 0.001;
+
+  
 let Centre = Addcoord / nbcoord
 // TODO
 
@@ -111,5 +145,5 @@ console.log("Plus grande distance : ",G_dist);
 // TODO
 console.log("Coordonnées du centre : ",Centre.toFixed(4));
 // TODO
-console.log("Coordonnées sur une même ligne ? : ");
+console.log("Coordonnées sur une même ligne ? : ",arePointsAligned(COORDS,tolerance));
 // TODO
