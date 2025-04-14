@@ -48,8 +48,6 @@ Dans le répertoire d'un projet Node.js :
 Contrairement à Python, par défaut, tous les packets sont installés dans le repertoire du projet. <br>
 Chaque projet contient donc indépendamment tous ses packets, ils ne sont pas partagés entre projets.
 
-Il est possible d'installer un packet de manière *globale*, hors d'un projet avec ```npm install monPacket -g```, mais cela ne se fait que si vous souhaitez une commande sur tout votre système.
-
 ---
 level : 2
 ---
@@ -68,7 +66,7 @@ Un projet avec Node.js est notamment composé des fichiers / dossiers :
     "start": "vite",      // Executer "npm run start" va executer la commande "vite"
     "build": "vite build"
   },
-  "dependencies": {       // Liste des dépendances pour les projet, ajoutées au moment d'un "npm install <librairie1>"
+  "dependencies": {       // Liste des dépendances pour les projet, ajoutées au moment d'un "npm install librairie1"
     "librairie1": "^1.0.0",     
     "librairie2": "^1.2.0",
     "librairie3": "^2.3.0"

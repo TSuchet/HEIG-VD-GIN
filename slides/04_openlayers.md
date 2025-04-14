@@ -1,3 +1,13 @@
+---
+---
+
+<div class="title">
+    <img src="/ol.svg" width="400px">
+</div>
+
+---
+---
+
 <style>
 img{
     margin:auto;
@@ -23,7 +33,7 @@ Deux librairies principales pour du webmapping 2D open source:
   </tr>
   <tr>
     <td>Grande communauté, beaucoup d'exemples</td>
-    <td>Moins grande communauté mais évolue rapidement</td>
+    <td>Très à jour sur les nouveaux standards</td>
   </tr>
   <tr>
     <td>Projection suisse peu supportée</td>
@@ -39,19 +49,24 @@ D'autres librairies existent:
 - Cesium: Visualisation 3D
 - Here Maps API, Google Maps API: Propriétaires
 
+Dans ce cours, nous utiliserons OpenLayers
+
 ---
 level : 2
 ---
 # OpenLayers
 Exemples d'utilisation
 
-* GeoAdmin : https://map.geo.admin.ch
-* SuisseMobile : https://map.wanderland.ch
-* Luxembourg : https://map.geoportail.lu
-* EPFL : https://plan.epfl.ch
-* Transports publics en temps réel : https://tracker.geops.ch
-* Saint-Pierre de la Réunion : https://geo.saintpierre.re
-* Région de Nyon : https://map.cartolacote.ch
+OpenLayers est très populaire en Suisse mais aussi ailleurs dans le monde, il sert de base à de nombreux géoportails.
+
+- GeoAdmin : https://map.geo.admin.ch
+- SuisseMobile : https://map.wanderland.ch
+- Luxembourg : https://map.geoportail.lu
+- EPFL : https://plan.epfl.ch
+- SITN : https://sitn.ne.ch
+- Transports publics en temps réel : https://tracker.geops.ch
+- Saint-Pierre de la Réunion : https://geo.saintpierre.re
+- Région de Nyon : https://map.cartolacote.ch
 
 
 ---
@@ -201,7 +216,7 @@ Il existe plusieurs types de layers (module `ol/layer`), mais ils peuvent être 
 * Raster (par ex: `TileLayer`, `ImageLayer`)
 * Vectoriel (par ex: `VectorLayer`, `VectorTileLayer`)
 
-Comme dans QGIS, une couche représente un calque, la *source* de la donné (module `ol/source`) est une propriété d'un `layer` et on peut à nouveau les séparer en 2 catégories:
+La *source* de la donné (module `ol/source`) est une propriété d'un `layer` et on peut à nouveau les séparer en 2 catégories:
 
 * Raster (par ex: `TileSource`, `ImageSource`)
 * Vectoriel (par ex: `VectorSource`, `VectorTile`)
@@ -236,11 +251,6 @@ const map = new Map({       // La Map est l'objet principal, c'est lui qui conti
 });
 ```
 
-
-
-
-
-
 ---
 
 
@@ -249,54 +259,16 @@ const map = new Map({       // La Map est l'objet principal, c'est lui qui conti
 Les contrôles sont des éléments permettant de manipuler la carte ou d'afficher une information.
 
 Par défaut, `Map` en charge 3:
-* `Zoom`
-* `Rotate` : Orientation (apparaît dès que la carte est tournée)
-* `Attribution` : Source des données
+- `Zoom`
+- `Rotate` : Orientation (apparaît dès que la carte est tournée)
+- `Attribution` : Copyright des données
 
 Il en existe d'autres
-* Barre d’échelle : `ScaleLine`
-* Carte d'aperçu : `OverviewMap`
-* Position curseur : `MousePosition`
-* Plein écran : `FullScreen`
-* Zoom sur étendue max : `ZoomToExtent`
-* Curseur de zoom : `ZoomSlider`
+- Barre d’échelle : `ScaleLine`
+- Carte d'aperçu : `OverviewMap`
+- Position curseur : `MousePosition`
+- Plein écran : `FullScreen`
+- Zoom sur étendue max : `ZoomToExtent`
+- Curseur de zoom : `ZoomSlider`
 
-
----
-
-## WMS (*Web Map Service*)
-
-Il y a deux façons de lire du WMS avec OpenLayers:
-
-#### `TileLayer` avec une source `TileWMS`
-* OpenLayers découpe l'étendue de la vue en une mosaïque d'imagettes carrées qu'il va demander au serveur
-* Performant sur des WMS raster, les imagettes sont mises en cache
-* Plus lent lorsque le serveur doit calculer un rendu complexe
-
-#### `ImageLayer` avec une source `ImageWMS`
-* OpenLayers demande au serveur WMS une image de la taille de la carte
-* Pas de cache, à chaque zoom, une nouvelle image est demandée
-* Intéressant quand le rendu d'une couche est complexe
-
-Une source WMS demandra toujours:
-* une `url` du service WMS
-* les `params` standards WMS, c'est-à-dire les paramètres GetMap tels que `LAYERS`, `FORMAT`, etc.
-* si le WMS est soumis à des droits d'utilisation, il faut indiquer les `attributions`
-
-*Voir ol-5_couches_wms*
-
----
-
-### Exercice
-
-1. Créez un projet openlayers à l'aide du [quickstart](https://openlayers.org/doc/quickstart.html)
-2. Installez Bootstrap et importez bootstrap dans votre fichier `style.css`
-3. Passez la carte à 400px de hauteur. Centrez votre carte sur 6.74°, 46.805° à un zoom 15.
-4. Créez un objet Javascript avec deux propriétés. Chacune contient un `TileLayer` avec une source de votre choix à condition que ce ne soit pas `OSM`. Choisissez-les parmis les exemples des couches tuilées présentées en cours.
-5. Ajoutez les deux couches précédemment créés à votre carte. Rendez-les invisibles à l'aide de la propriété `visible` disponible sur un `TileLayer`
-6. Ajoutez une troisième propriété à votre objet et nommez-la `osm`. Elle contient une couche OSM. Effacez la couche OSM définie dans la map afin de laisser la propriété `layers` sur un tableau vide et enfin, ajoutez ce layer à la carte comme vous l'avez fait pour les couches précédentes.
-7. Créez un sélecteur de carte avec l'HTML de votre choix. Ça peut être trois boutons, des boutons radio, un dropdown, etc. Votre sélecteur de carte appelera une fonction qui se contente dans un premier temps de console.log() l'option choisie.
-8. La fonction appelée par votre sélecteur de carte passe toutes les couches en `setVisible(false)` et change la visibilité de la couche choisie en `true`.
-9. Vous apprenez que l'HEIG-VD dispose d'un serveur WMS:
-  * lien: `https://ogc.heig-vd.ch/qgis?service=WMS&request=getcapabilities&version=1.3.0`
-  * Ajoutez la couche `120307_Yvonand_Plage_25cm` disponible sur ce serveur à votre application.
+Exemples : https://openlayers.org/en/latest/examples/?q=control
