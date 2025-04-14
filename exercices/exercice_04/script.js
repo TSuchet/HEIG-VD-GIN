@@ -1,14 +1,11 @@
 // Partie 1
-{
-console.log("Partie 1 : ")
+const place = { "Name": "HEIG-VD", "Type": "University", "Coordinates": [2540499, 1181186], "Address" : "Route de Cheseaux 1"};
+console.log("Partie 1 :")
+for(const key in place){
+    console.log(key + " = "  + place[key])
+};
 
-// TODO
 
-}
-
-// Partie 2
-{
-console.log("Partie 2 : ")
 
 const CANTONS = [
     { "name": "Aargau", "surface": 1403702150, "abrv": "AG" }, 
@@ -39,6 +36,22 @@ const CANTONS = [
     { "name": "Zürich", "surface": 1728819281, "abrv": "ZU" }
 ];
 
+let SupTotale = 0
+let SupGeVaVasFrNeu = 0
+let Plus_G_Sup = 0
+let Nom_Plus_G = ""
+for (const canton of CANTONS) {
+    SupTotale = SupTotale + canton["surface"];
+    if (canton["name"] == "Genève" || canton.name == "Neuchâtel" || canton["name"] == "Valais" || canton["name"] == "Vaud" || canton["name"] == "Fribourg") {
+        SupGeVaVasFrNeu = SupGeVaVasFrNeu + canton["surface"]
+        };
+    if(Plus_G_Sup == 0 || Plus_G_Sup < canton["surface"]) {
+        Plus_G_Sup = canton["surface"];
+        Nom_Plus_G = canton["name"];
+        };
+    };
+console.log("La superficie totale de la Suisse est de " + SupTotale + " m2")
+console.log("La superficie totale des cantons Romand est de " + SupGeVaVasFrNeu + " m2")
+console.log("Le plus grand canton de Suisse est " + Nom_Plus_G + " avec une superficie de " + Plus_G_Sup +" m2")
 // TODO
 
-}
